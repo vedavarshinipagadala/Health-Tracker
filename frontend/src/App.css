@@ -1,0 +1,178 @@
+/* App.css */
+
+* {
+  background-color: #FBF6EE;
+}
+
+/* TrackerList.css */
+.tracker-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tracker-list h2 {
+  width: 100%;
+  text-align: center;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+#datePicker {
+  width: 200px;
+}
+
+.lists {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TrackerCard.css */
+.tracker-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.312);
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.tracker-card h3 {
+  color: #333;
+  color: #FFB534;
+}
+
+.span {
+  font-weight: 800;
+}
+
+.tracker-card p {
+  margin: 8px 0;
+  color: #666;
+}
+
+/* TrackerApp */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #65B741;
+}
+
+/* Nav */
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+button {
+  background-color: #C1F2B0;
+  color: #FFB534;
+}
+
+#gfg {
+  background-color: #0fb300;
+  padding: 10px;
+  color: #FBF6EE;
+  border-radius: 10px;
+}
+
+/* Button.css */
+.custom-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #2980b9;
+}
+
+/* HealthFormModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.health-form {
+  max-width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.health-form h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* HealthForm.css */
+.health-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.health-form label {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.health-form input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.health-form button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.health-form button:hover {
+  background-color: #2980b9;
+}
+
+.health-form button:last-child {
+  margin-top: 0;
+  background-color: #e74c3c;
+}
+
+.health-form button:last-child:hover {
+  background-color: #c0392b;
+}
