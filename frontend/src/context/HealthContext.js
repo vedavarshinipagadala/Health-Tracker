@@ -6,14 +6,28 @@ const HealthContext = createContext();
 const HealthProvider = ({ children }) => {
   const [tracks, setTracks] = useState([]);
 
+  // Get token from localStorage
+  const getAuthHeader = () => {
+    const token = localStorage.getItem('token');
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  };
+
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/tracks');
+        const response = await axios.get('http://localhost:5000/tracks', {
+          headers: getAuthHeader()
+        });
         console.log('Fetched tracks from backend:', response.data);
         setTracks(response.data);
       } catch (error) {
         console.error('Error fetching health tracks:', error.message);
+        if (error.response?.status === 401) {
+          // Token expired or invalid
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          window.location.reload();
+        }
       }
     };
 
@@ -24,7 +38,10 @@ const HealthProvider = ({ children }) => {
     try {
       const response = await axios.put(
         `http://localhost:5000/tracks/${date}`,
-        newData
+        newData,
+        {
+          headers: getAuthHeader()
+        }
       );
       
       setTracks((prevTracks) => {
@@ -47,6 +64,11 @@ const HealthProvider = ({ children }) => {
       });
     } catch (error) {
       console.error('Error updating health track:', error.message);
+      if (error.response?.status === 401) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.reload();
+      }
     }
   };
 
