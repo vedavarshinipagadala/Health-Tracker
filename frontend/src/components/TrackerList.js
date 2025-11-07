@@ -22,40 +22,36 @@ const TrackerList = () => {
 
   return (
     <div className="tracker-list">
-      <h2>Records List</h2>
-      <label htmlFor="datePicker">
-        Select a date (optional):
-      </label>
-      <input
-        type="date"
-        id="datePicker"
-        value={selectedDate}
-        onChange={handleDateChange} 
-      />
-      {selectedDate && (
-        <button 
-          onClick={() => setSelectedDate('')}
-          style={{
-            marginLeft: '10px',
-            padding: '5px 15px',
-            backgroundColor: '#e74c3c',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          Clear Filter
-        </button>
-      )}
+      <h2>📊 Health Records</h2>
+      <div className="date-filter">
+        <label htmlFor="datePicker">
+          Filter by Date:
+        </label>
+        <input
+          type="date"
+          id="datePicker"
+          value={selectedDate}
+          onChange={handleDateChange} 
+        />
+        {selectedDate && (
+          <button 
+            onClick={() => setSelectedDate('')}
+            className="clear-filter-btn"
+          >
+            Clear Filter
+          </button>
+        )}
+      </div>
       <div className='lists'>
         {
           filteredTracks.length === 0 ? (
-            <p>
-              {selectedDate 
-                ? 'No tracks found for the selected date.' 
-                : 'No tracks available. Add your first health data!'}
-            </p>
+            <div className="no-tracks">
+              <p>
+                {selectedDate 
+                  ? '📅 No records found for the selected date.' 
+                  : '🏃 No records available yet. Start tracking your health today!'}
+              </p>
+            </div>
           ) : (
             filteredTracks.map((data) => (
               <TrackerCard key={data.id || data.date} data={data} />

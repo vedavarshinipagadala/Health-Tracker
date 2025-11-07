@@ -11,32 +11,30 @@ const TrackerCard = ({ data }) => {
 
   // Format date properly
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    weekday: 'short',
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric'
   });
 
   return (
     <div className="tracker-card">
-      <h3>
-        <span className='span'>Date: </span>
-        {formattedDate}
-      </h3>
+      <h3>📅 {formattedDate}</h3>
       <p>
-        <span className='span'>Steps: </span>
-        {steps || 0}
+        <span className='span'>👣 Steps:</span>
+        <span className='value'>{steps || 0}</span>
       </p>
       <p>
-        <span className='span'>Calories Burned: </span>
-        {caloriesBurned || 0}
+        <span className='span'>🔥 Calories:</span>
+        <span className='value'>{caloriesBurned || 0}</span>
       </p>
       <p>
-        <span className='span'>Distance Covered: </span>
-        {distanceCovered || 0} km
+        <span className='span'>📏 Distance:</span>
+        <span className='value'>{distanceCovered || 0} km</span>
       </p>
       <p>
-        <span className='span'>Weight: </span>
-        {weight || 0} Kg
+        <span className='span'>⚖️ Weight:</span>
+        <span className='value'>{weight || 0} kg</span>
       </p>
     </div>
   );

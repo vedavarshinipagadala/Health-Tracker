@@ -51,21 +51,21 @@ const HealthForm = ({ onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="health-form" onClick={(e) => e.stopPropagation()}>
-        <h2>Health Data Form</h2>
+        <h2>📝 Health Data Entry</h2>
         <form onSubmit={handleSubmit}>
           <label>
-            Steps:
+            👣 Steps
             <input
               type="number"
               name="steps"
               value={formData.steps}
               onChange={handleChange}
-              placeholder="Enter steps"
+              placeholder="Enter your steps"
             />
           </label>
 
           <label>
-            Calories Burned:
+            🔥 Calories Burned
             <input
               type="number"
               name="caloriesBurned"
@@ -76,32 +76,32 @@ const HealthForm = ({ onClose }) => {
           </label>
 
           <label>
-            Distance Covered (km):
+            📏 Distance Covered (km)
             <input
               type="number"
               step="0.1"
               name="distanceCovered"
               value={formData.distanceCovered}
               onChange={handleChange}
-              placeholder="Enter distance"
+              placeholder="Enter distance in km"
             />
           </label>
 
           <label>
-            Weight (kg):
+            ⚖️ Weight (kg)
             <input
               type="number"
               step="0.1"
               name="weight"
               value={formData.weight}
               onChange={handleChange}
-              placeholder="Enter weight"
+              placeholder="Enter your weight"
             />
           </label>
 
-          <button type="submit">Save</button>
+          <button type="submit">💾 Save Data</button>
           <button type="button" onClick={onClose}>
-            Close
+            ❌ Cancel
           </button>
         </form>
       </div>
